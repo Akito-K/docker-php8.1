@@ -2,7 +2,7 @@ version: '3'
 
 services:
   php-web:
-    image: nic-lab/php-8.1
+    image: niclab/php8.1
     working_dir: /var/www
     ports:
       - 60011:80
@@ -13,7 +13,7 @@ services:
 
   mysql:
     image: mysql:8.0
-    container_name: mysql
+    container_name: mysql60111
     # mysql8の認証プラグイン。この記述がないと弾かれる。
     command: --default-authentication-plugin=mysql_native_password
     ports:
@@ -31,7 +31,7 @@ services:
     image: phpmyadmin/phpmyadmin
     environment:
       - PMA_ARBITRARY=1
-      - PMA_HOST=mysql
+      - PMA_HOST=mysql60111
       - PMA_USER=user
       - PMA_PASSWORD=password
     ports:
